@@ -66,9 +66,9 @@ window.onload = () => {
  document.addEventListener('mousemove', moving);
  document.addEventListener('mouseup', moveEnd);
 
- draggable.addEventListener('touchstart', moveStart, { passive: false });
+//  draggable.addEventListener('touchstart', moveStart, { passive: false });
 
- document.addEventListener('touchmove', moving, { passive: false });
- document.addEventListener('touchend', moveEnd, { passive: false });
+//  document.addEventListener('touchmove', moving, { passive: false });
+//  document.addEventListener('touchend', moveEnd, { passive: false });
 
 }
