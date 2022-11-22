@@ -1,0 +1,64 @@
+window.onload = () => {
+	
+  let parent = document.querySelector('.parent');
+ let parentRect = parent.getBoundingClientRect();
+
+ let draggable = document.querySelector('.draggable');
+ let draggableRect = draggable.getBoundingClientRect();
+ 
+ 
+ let dragging = false;
+ 
+ 
+ function moveStart(e)
+ {
+   e.preventDefault();
+   dragging = true;
+ }
+ 
+ function moveEnd(e)
+ {
+   e.preventDefault();
+   dragging = false;
+ }
+
+ function moving(e)
+ {
+   e.preventDefault();
+   if( dragging)
+   {
+     //if the position of the element is bigger or equal to parent div. Keeps the element inside the parent div
+     if( (e.clientX >= parentRect.left && (e.clientX+draggableRect.width <= parentRect.right)) &&
+         (e.clientY >= parentRect.top && (e.clientY+draggableRect.height <= parentRect.bottom))  
+       ){
+       //adds widths and height style to draggable element in pixels
+         draggable.style.left = `${e.clientX}px`;
+         draggable.style.top = `${e.clientY}px`;
+         
+     }
+     else{
+       //if mouse went out of bounds in Horizontal and keeps the element inside the parent div
+       if(e.clientX+draggableRect.width >= parentRect.right){
+          draggable.style.left = `${parentRect.right-draggableRect.width}px`;
+       }
+       //if mouse went out of bounds in Vertical keeps the element inside the parent div
+       if(e.clientY+draggableRect.height >= parentRect.bottom){
+          draggable.style.top = `${parentRect.bottom-draggableRect.height}px`;
+       }
+       
+     }
+     
+   }	
+
+   console.log("parentrect left: ",parentRect.left)
+   console.log("parentrect right: ",parentRect.right)
+   console.log("parentrect bottom: ",parentRect.bottom)
+   console.log("parentrect top: ",parentRect.top)
+   console.log("draggable rect width: ", draggableRect)
+ }
+ 
+ 
+ draggable.addEventListener('mousedown', moveStart);
+ document.addEventListener('mousemove', moving);
+ document.addEventListener('mouseup', moveEnd);
+}
