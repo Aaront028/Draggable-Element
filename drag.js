@@ -13,18 +13,21 @@ window.onload = () => {
  function moveStart(e)
  {
    e.preventDefault();
+
    dragging = true;
  }
  
  function moveEnd(e)
  {
    e.preventDefault();
+
    dragging = false;
  }
 
  function moving(e)
  {
    e.preventDefault();
+
    if( dragging)
    {
      //if the position of the element is bigger or equal to parent div. Keeps the element inside the parent div
@@ -63,9 +66,9 @@ window.onload = () => {
  document.addEventListener('mousemove', moving);
  document.addEventListener('mouseup', moveEnd);
 
- draggable.addEventListener('touchstart', moveStart);
+ draggable.addEventListener('touchstart', moveStart, { passive: false });
 
- document.addEventListener('touchmove', moving);
- document.addEventListener('touchend', moveEnd);
+ document.addEventListener('touchmove', moving, { passive: false });
+ document.addEventListener('touchend', moveEnd, { passive: false });
 
 }
