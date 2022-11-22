@@ -1,6 +1,6 @@
 window.onload = () => {
 	
-  let parent = document.querySelector('.parent');
+ let parent = document.querySelector('.parent');
  let parentRect = parent.getBoundingClientRect();
 
  let draggable = document.querySelector('.draggable');
@@ -49,16 +49,17 @@ window.onload = () => {
      }
      
    }	
-
-   console.log("parentrect left: ",parentRect.left)
-   console.log("parentrect right: ",parentRect.right)
-   console.log("parentrect bottom: ",parentRect.bottom)
-   console.log("parentrect top: ",parentRect.top)
-   console.log("draggable rect width: ", draggableRect)
+   // testing purposes finding out position and size of element and parent div
+  //  console.log("parentrect left: ",parentRect.left)
+  //  console.log("parentrect right: ",parentRect.right)
+  //  console.log("parentrect bottom: ",parentRect.bottom)
+  //  console.log("parentrect top: ",parentRect.top)
+  //  console.log("draggable rect width: ", draggableRect)
  }
  
- 
+ //allows only one draggable item to move on click
  draggable.addEventListener('mousedown', moveStart);
+
  document.addEventListener('mousemove', moving);
  document.addEventListener('mouseup', moveEnd);
 }
