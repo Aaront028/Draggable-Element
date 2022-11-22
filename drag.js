@@ -63,9 +63,9 @@ window.onload = () => {
  document.addEventListener('mousemove', moving);
  document.addEventListener('mouseup', moveEnd);
 
- draggable.addEventListener('ontouchstart', moveStart);
+ draggable.addEventListener('touchstart', moveStart);
 
- document.addEventListener('ontouchmove', moving);
- document.addEventListener('ontouchend', moveEnd);
+ document.addEventListener('touchmove', moving);
+ document.addEventListener('touchend', moveEnd);
 
 }
