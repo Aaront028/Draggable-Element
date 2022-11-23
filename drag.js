@@ -19,6 +19,7 @@ window.onload = () => {
  function moveEnd(e)
  {
    e.preventDefault();
+   draggable.style.cursor = "grab";
    dragging = false;
  }
 
@@ -29,14 +30,14 @@ window.onload = () => {
    if( dragging)
    {
      //if the position of the element is bigger or equal to parent div. Keeps the element inside the parent div
-     if( (e.clientX >= parentRect.left && (e.clientX+draggableRect.width <= parentRect.right)) &&
-         (e.clientY >= parentRect.top && (e.clientY+draggableRect.height <= parentRect.bottom))  
+     if( (e.clientX >= parentRect.left + 50  && (e.clientX+draggableRect.width <= parentRect.right + 50)) &&
+         (e.clientY >= parentRect.top +50 && (e.clientY+draggableRect.height <= parentRect.bottom +50))  
        ){
        //adds widths and height style to draggable element in pixels
        
-         
-         draggable.style.left = `${e.clientX}px`;
-         draggable.style.top = `${e.clientY}px`;
+         draggable.style.cursor = "grabbing";
+         draggable.style.left = `${e.clientX-50}px`;
+         draggable.style.top = `${e.clientY-50}px`;
          
      }
      else{
@@ -45,14 +46,14 @@ window.onload = () => {
           draggable.style.left = `${parentRect.right-draggableRect.width}px`;
        }
        //if mouse went out of bounds in Vertical keeps the element inside the parent div
-       if(e.clientY+draggableRect.height >= parentRect.bottom){
+       if(e.clientY+draggableRect.height >= parentRect.bottom ){
           draggable.style.top = `${parentRect.bottom-draggableRect.height}px`;
        }
        
      }
      
    }	
-   // testing purposes finding out position and size of element and parent div
+  //  testing purposes finding out position and size of element and parent div
   //  console.log("parentrect left: ",parentRect.left)
   //  console.log("parentrect right: ",parentRect.right)
   //  console.log("parentrect bottom: ",parentRect.bottom)
