@@ -13,7 +13,6 @@ window.onload = () => {
  function moveStart(e)
  {
    e.preventDefault();
-
    dragging = true;
  }
  
@@ -35,8 +34,8 @@ window.onload = () => {
          (e.clientY >= parentRect.top && (e.clientY+draggableRect.height <= parentRect.bottom))  
        ){
        //adds widths and height style to draggable element in pixels
-         draggable.style.left = `${e.clientX}px`;
-         draggable.style.top = `${e.clientY}px`;
+         draggable.style.left = `${e.clientX - 50}px`;
+         draggable.style.top = `${e.clientY - 50}px`;
          
      }
      else{
