@@ -13,19 +13,21 @@ window.onload = () => {
  function moveStart(e)
  {
    e.preventDefault();
+   draggable.style.cursor = "grabbing";
    dragging = true;
  }
  
  function moveEnd(e)
  {
    e.preventDefault();
-
+   draggable.style.cursor = "grab";
    dragging = false;
  }
 
  function moving(e)
  {
    e.preventDefault();
+
 
    if( dragging)
    {
@@ -36,6 +38,7 @@ window.onload = () => {
        //adds widths and height style to draggable element in pixels
          draggable.style.left = `${e.clientX - 50}px`;
          draggable.style.top = `${e.clientY - 50}px`;
+         
          
      }
      else{
