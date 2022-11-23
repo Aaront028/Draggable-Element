@@ -13,22 +13,19 @@ window.onload = () => {
  function moveStart(e)
  {
    e.preventDefault();
-   draggable.style.cursor = "grabbing";
    dragging = true;
  }
  
  function moveEnd(e)
  {
    e.preventDefault();
-   draggable.style.cursor = "grab";
    dragging = false;
  }
 
  function moving(e)
  {
    e.preventDefault();
-
-
+   
    if( dragging)
    {
      //if the position of the element is bigger or equal to parent div. Keeps the element inside the parent div
@@ -36,9 +33,10 @@ window.onload = () => {
          (e.clientY >= parentRect.top && (e.clientY+draggableRect.height <= parentRect.bottom))  
        ){
        //adds widths and height style to draggable element in pixels
-         draggable.style.left = `${e.clientX }px`;
-         draggable.style.top = `${e.clientY}px`;
+       
          
+         draggable.style.left = `${e.clientX}px`;
+         draggable.style.top = `${e.clientY}px`;
          
      }
      else{
